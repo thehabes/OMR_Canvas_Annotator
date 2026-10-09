@@ -140,7 +140,7 @@ class AnnotoriousAnnotator extends HTMLElement {
     initAnnotator() {
       this.#contentURI = new URLSearchParams(window.location.search).get('iiif-content')
       if(!this.#contentURI) {
-          this.showMessage("You must provide a ?iiif-content=theid in the URL.  The value should be the URI of an existing Canvas or AnnotationPage.")
+          this.showMessage("You must provide a resource.  It should an existing Canvas or AnnotationPage.")
           return
       }
       this.setAttribute("iiif-content", this.#contentURI)
@@ -324,7 +324,7 @@ class AnnotoriousAnnotator extends HTMLElement {
         return this.processCanvas(await this.fetchJSON(canvasURI))
       }
       throw new Error(`Provided URI did not resolve a 'Canvas' or an 'AnnotationPage'.  It resolved a '${type}'`,
-        {"cause":"iiif-content must point to a Canvas or an AnnotationPage."})
+        {"cause":"resource must be a Canvas or an AnnotationPage."})
     }
 
     /**
