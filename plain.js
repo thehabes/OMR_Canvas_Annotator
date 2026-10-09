@@ -140,7 +140,7 @@ class AnnotoriousAnnotator extends HTMLElement {
     initAnnotator() {
       this.#contentURI = new URLSearchParams(window.location.search).get('iiif-content')
       if(!this.#contentURI) {
-          this.showMessage("You must provide a resource.  It should an existing Canvas or AnnotationPage.")
+          this.showMessage("You must provide a resource.  It should be an existing Canvas or AnnotationPage.")
           return
       }
       this.setAttribute("iiif-content", this.#contentURI)
